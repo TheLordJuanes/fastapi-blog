@@ -1,8 +1,12 @@
 from fastapi import FastAPI
 from core.config import settings
 
-app = FastAPI(title=settings.PROJECT_TITLE, version=settings.PROJECT_VERSION)
+def start_application():
+    application = FastAPI(title=settings.PROJECT_TITLE, version=settings.PROJECT_VERSION)
+    return application
+
+app = start_application()
 
 @app.get("/")
 def read_root():
-    return {"msg": "Hello FastAPI"}
+    return {"msg": "Hello World!"}
