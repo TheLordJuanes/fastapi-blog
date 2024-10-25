@@ -8,6 +8,6 @@ from backend.db.repository.user import create_new_user
 
 router = APIRouter()
 
-@router.post("/", response_model=ShowUser, status_code=status.HTTP_201_CREATED)    # POST /api/v1/create-user
+@router.post("/", response_model=ShowUser, status_code=status.HTTP_201_CREATED)    # POST /api/v1/users
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
     return create_new_user(user, db)

@@ -3,17 +3,20 @@ from typing import Optional
 from datetime import datetime
 
 
-class BlogCreate(BaseModel):
+class CreateBlog(BaseModel):
     title: str
     slug: str
     content: Optional[str] = None
 
     @model_validator(mode="before")
     def generate_slug(cls, values):
-        if "slug" in values:
+        if values.get("slug"):
             return values
-        values["slug"] = values["title"].replace(" ", "-").lower()
+        values["slug"] = values.get("title").replace(" ", "-").lower()
         return values
+
+class UpdateBlog(CreateBlog):
+    pass
 
 class ShowBlog(BaseModel):
     title: str
