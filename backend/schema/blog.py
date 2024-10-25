@@ -9,7 +9,7 @@ class CreateBlog(BaseModel):
     content: Optional[str] = None
 
     @model_validator(mode="before")
-    def generate_slug(cls, values):
+    def generate_slug(self, values):
         if values.get("slug"):
             return values
         values["slug"] = values.get("title").replace(" ", "-").lower()

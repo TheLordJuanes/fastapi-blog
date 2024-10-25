@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter, Depends, status, HTTPException
 from sqlalchemy.orm import Session
 
-from backend.schemas.blog import CreateBlog, ShowBlog, UpdateBlog
+from backend.schema.blog import CreateBlog, ShowBlog, UpdateBlog
 from backend.db.session import get_db
 from backend.db.repository.blog import create_new_blog, get_blog_by_id, list_all_active_blogs, update_blog_by_id, delete_blog_by_id
 

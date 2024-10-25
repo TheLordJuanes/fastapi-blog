@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from backend.schemas.blog import CreateBlog, UpdateBlog
-from backend.db.models.blog import Blog
+from backend.schema.blog import CreateBlog, UpdateBlog
+from backend.db.model.blog import Blog
 
 
 def create_new_blog(blog: CreateBlog, db: Session, author_id: int = 1):
