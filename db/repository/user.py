@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
-from backend.schema.user import UserCreate
-from backend.db.model.user import User
-from backend.core.hashing import Hasher
+from schema.user import UserCreate
+from db.model.user import User
+from core.hashing import Hasher
 
 
 def create_new_user(user: UserCreate, db: Session):
@@ -10,3 +10,6 @@ def create_new_user(user: UserCreate, db: Session):
     db.commit()
     db.refresh(user)
     return user
+
+def get_user_by_email(email: str, db: Session):
+    return db.query(User).filter(User.email == email).first()
